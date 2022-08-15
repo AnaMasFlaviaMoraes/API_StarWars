@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Star Wars</title>
+</head>
+<body>
+    <style>
+        @font-face{
+            font-family: 'StarWars';
+            src: url('./img/Fonte/Death Star.otf')format('opentype');
+            
+        }
+        @font-face{
+            font-family: 'Descricao';
+            src: url('./img/Fonte/Philosopher-Bold.ttf')format('truetype');
+            
+        }
+        .fonte-externa{
+            font-family: 'StarWars';
+            color:#FFF33F;
+            text-align: center;
+        }
+        #mostraTabela{
+            font-family: 'StarWars';
+            color:#FFF33F;
+            text-align: center;
+            font-size: medium;
+        }
+        body{
+            background-image: url('./img/fundo.png');
+        }
+        .table{
+            background-color: #FFF33F; 
+        }
+        #nome{
+            color: #0A286E;
+        }
+        .custom-select{
+            color: #0A286E;
+        }
+        .list-group{
+            font-family: 'Descricao';
+            color:#FFF33F;
+            font-size: small;
+        }
+
+    </style>
+    <div class="container">
+    <h1 class="fonte-externa">Bem-Vindo ao Mundo Star Wars!</h1>
+    <br>
+    <form method="post" action="/">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
+            </div>
+            <input name="nome" type="text" class="form-control" aria-label="Exemplo do tamanho do input" aria-describedby="inputGroup-sizing-default" placeholder="Digite um nome para seu personagem" class="form-control" id="nome" required>
+        </div>
+        <br>
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="especie">Qual sua espécie?</label>
+            <select name="especie" id="especie"  class="custom-select" onchange="escolheEspecie(especie.value)" required>
+                <option value="1">Humano</option>
+                <option value="2">Dróide</option>
+                <option value="3">Wookie</option>
+                <option value="4">Rodian</option>
+                <option value="5">Hutt</option>
+                <option value="6">Yoda's species</option>
+                <option value="7">Trandoshan</option>
+                <option value="8">Mon Calamari</option>
+                <option value="9">Ewok</option>
+                <option value="10">Sullustan</option>
+                <option value="11">Neimodian</option>
+                <option value="12">Gungan</option>
+                <option value="13">Toydarian</option>
+                <option value="14">Dug</option>
+                <option value="15">Twi'lek</option>
+                <option value="16">Aleena</option>
+                <option value="18">Xexto</option>
+                <option value="19">Toong</option>
+                <option value="20">Cerean</option>
+                <option value="21">Nautolan</option>
+                <option value="22">Zabrak</option>
+                <option value="23">Tholothian</option>
+                <option value="24">Iktotchi</option>
+                <option value="25">Quermian</option>
+                <option value="26">Kel Dor</option>
+                <option value="27">Chagrian</option>
+                <option value="28">Geonosian</option>
+                <option value="29">Mirialan</option>
+                <option value="30">Clawdite</option>
+            </select>
+        </div>
+        <br>
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="acompanhante">Escolha um acompanhante:</label>
+            <select name="acompanhante" id="acompanhante" class="custom-select" onchange="escolhePersonagem(acompanhante.value)" required>
+                <option value="1">Luke Skywalker</option>
+                <option value="2">C3-PO</option>
+                <option value="3">R2-D2</option>
+                <option value="4">Darth Vader</option>
+                <option value="5">Princesa Leia</option>
+                <option value="6">Owen Lars</option>
+                <option value="7">Beru Whitesun lars</option>
+                <option value="8">R5-D4</option>
+                <option value="9">Biggs Darklighter</option>
+                <option value="10">Obi-Wan Kenobi</option>
+                <option value="11">Anakin Skywalker</option>
+                <option value="12">Governador Tarkin</option>
+                <option value="13">Chewbacca</option>
+                <option value="14">Han Solo</option>
+                <option value="15">Greedo</option>
+                <option value="16">Jabba Desilijic Tiure</option>
+                <option value="18">Wedge Antilles</option>
+                <option value="19">Jek Tono Porkins</option>
+                <option value="20">Yoda</option>
+                <option value="21">Palpatine</option>
+                <option value="22">Boba Fett</option>
+                <option value="23">IG-88</option>
+                <option value="24">Bossk</option>
+                <option value="25">Lando Calrissian</option>
+                <option value="26">Lobot</option>
+                <option value="27">Ackbar</option>
+                <option value="28">Mon Mothma</option>
+                <option value="29">Arvel Crynyd</option>
+                <option value="30">Wicket Systri Warrick</option>
+            </select>
+        </div>
+        <br>
+        <input type="submit" class="btn btn-warning" value="Salvar Personagem" onclick="mensagemCriar()">
+    </form>
+</div>
+<div class="msgEspecie" id="descreveEspecie"></div>
+<div id="descreveAcompanhante"></div>
+<div id="mostraTabela"></div>
+<form method="get" action="/lista">
+    <input type="hidden" class="btn btn-warning" value="Lista dos personagens">
+</form>
+<form method="get" action="/">
+    <input type="submit" class="btn btn-warning" value="Atualizar Lista">
+</form>
+<table class="table" id="tabela"></table>
+
+<script>
+    //Chamando a rota /lista, para sempre ir mostrando um novo personagem inserido ou atualização se for apagado
+    const url = '/lista';
+    fetch(url)
+    .then(resp => resp.json())
+    .then(json => {
+
+        console.log(json)
+        document.querySelector('#mostraTabela').innerHTML = "<h3>Personagens cadastrados :</h3>";
+        let linha = '<thead><tr><th scope="col">#</th><th scope="col">ID</th><th scope="col">Nome</th><th scope="col">Excluir</th></tr></thead><tr><tbody><tr>';
+        let ct = 1;
+        for (let e of json) {
+            linha += `<th scope='row'>${ct}</th>`;
+            linha += `<td>"${e._id}"</td>`;
+            linha +=`<td>${e.nome}</td>`;
+            linha +=`<td><form method='get' action='/excluir/${e._id}'><input type='submit' class='btn btn-warning' value="Excluir Personagem" onclick='mensagemExcluir()'></form></td>`;
+            linha += "</tr>";
+            ct++;
+        }
+        linha += "</tbody>";
+        document.querySelector('#tabela').innerHTML = linha;
+    }).catch(console.error);
+
+</script>
+
+
+
+     <!-- JavaScript (Opcional) -->
+    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="src/js/index.js"></script>
+</body>
+</html>
